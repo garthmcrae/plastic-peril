@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Narrow Corridors</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                background: whitesmoke;
+                color: black;
+                font-family:
+                    "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+                font-size: 8pt;
+                font-weight: normal;
+                margin: 24px;
+            }
+            .page {
+                background: white;
+                box-sizing: border-box;
+                display: flex;
+                height: 210mm;
+                padding: 2.5mm;
+                width: 297mm;
+            }
+            .map {
+                display: flex;
+                flex-direction: column;
+            }
+            .row {
+                display: flex;
+            }
+            .row img {
+                display: block;
+                height: 20mm;
+                width: 20mm;
+            }
+            .sidebar {
+                flex: 1;
+                padding: 8mm 10mm 8mm 5mm;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+            .sidebar pre {
+                margin: 0;
+                white-space: pre-wrap;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="map">
+                <!-- Row 0: NW------EN--------NE -->
+                <div class="row">
+                    <img src="../assets/corner-nw-01.svg" />
+                    <img src="../assets/wall-h-01.svg" />
+                    <img src="../assets/wall-h-02.svg" />
+                    <img src="../assets/wall-h-03.svg" />
+                    <img src="../assets/entrance.svg" />
+                    <img src="../assets/wall-h-04.svg" />
+                    <img src="../assets/wall-h-05.svg" />
+                    <img src="../assets/wall-h-01.svg" />
+                    <img src="../assets/wall-h-02.svg" />
+                    <img src="../assets/corner-ne-01.svg" />
+                </div>
+                <!-- Row 1: ||          NW--NE|| -->
+                <div class="row">
+                    <img src="../assets/wall-v-01.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/corner-nw-02.svg" />
+                    <img src="../assets/wall-h-03.svg" />
+                    <img src="../assets/corner-ne-02.svg" />
+                    <img src="../assets/wall-v-02.svg" />
+                </div>
+                <!-- Row 2: ||NW--NE    SW--SE|| -->
+                <div class="row">
+                    <img src="../assets/wall-v-03.svg" />
+                    <img src="../assets/corner-nw-03.svg" />
+                    <img src="../assets/wall-h-04.svg" />
+                    <img src="../assets/corner-ne-03.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/corner-sw-01.svg" />
+                    <img src="../assets/wall-h-05.svg" />
+                    <img src="../assets/corner-se-01.svg" />
+                    <img src="../assets/wall-v-04.svg" />
+                </div>
+                <!-- Row 3: ||SW--SE          || -->
+                <div class="row">
+                    <img src="../assets/wall-v-05.svg" />
+                    <img src="../assets/corner-sw-02.svg" />
+                    <img src="../assets/wall-h-01.svg" />
+                    <img src="../assets/corner-se-02.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/wall-v-01.svg" />
+                </div>
+                <!-- Row 4: ||        NW--NE  || -->
+                <div class="row">
+                    <img src="../assets/wall-v-02.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/corner-nw-04.svg" />
+                    <img src="../assets/wall-h-02.svg" />
+                    <img src="../assets/corner-ne-04.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/wall-v-03.svg" />
+                </div>
+                <!-- Row 5: ||        SW--SE  || -->
+                <div class="row">
+                    <img src="../assets/wall-v-04.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/corner-sw-03.svg" />
+                    <img src="../assets/wall-h-03.svg" />
+                    <img src="../assets/corner-se-03.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/wall-v-05.svg" />
+                </div>
+                <!-- Row 6: ||NW------NE      || -->
+                <div class="row">
+                    <img src="../assets/wall-v-01.svg" />
+                    <img src="../assets/corner-nw-01.svg" />
+                    <img src="../assets/wall-h-04.svg" />
+                    <img src="../assets/wall-h-05.svg" />
+                    <img src="../assets/wall-h-01.svg" />
+                    <img src="../assets/corner-ne-01.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/wall-v-02.svg" />
+                </div>
+                <!-- Row 7: ||SW------SE      || -->
+                <div class="row">
+                    <img src="../assets/wall-v-03.svg" />
+                    <img src="../assets/corner-sw-04.svg" />
+                    <img src="../assets/wall-h-02.svg" />
+                    <img src="../assets/wall-h-03.svg" />
+                    <img src="../assets/wall-h-04.svg" />
+                    <img src="../assets/corner-se-04.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/wall-v-04.svg" />
+                </div>
+                <!-- Row 8: ||**              || -->
+                <div class="row">
+                    <img src="../assets/wall-v-05.svg" />
+                    <img src="../assets/obstacle-01.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/floor.svg" />
+                    <img src="../assets/wall-v-01.svg" />
+                </div>
+                <!-- Row 9: SW--------EX------SE -->
+                <div class="row">
+                    <img src="../assets/corner-sw-01.svg" />
+                    <img src="../assets/wall-h-05.svg" />
+                    <img src="../assets/wall-h-01.svg" />
+                    <img src="../assets/wall-h-02.svg" />
+                    <img src="../assets/wall-h-03.svg" />
+                    <img src="../assets/exit.svg" />
+                    <img src="../assets/wall-h-04.svg" />
+                    <img src="../assets/wall-h-05.svg" />
+                    <img src="../assets/wall-h-01.svg" />
+                    <img src="../assets/corner-se-01.svg" />
+                </div>
+            </div>
+            <div class="sidebar">
+                <h2
+                    style="
+                        font-size: inherit;
+                        font-weight: inherit;
+                        margin: 0 0 8px;
+                    "
+                >
+                    Narrow Corridors
+                </h2>
+                <p style="line-height: 1.6; margin: 0 0 16px">
+                    Thin wall runs fold the dungeon into a looping route from
+                    the top opening to the south exit. The side passages double
+                    back just enough that every straight line starts to feel
+                    suspicious.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
