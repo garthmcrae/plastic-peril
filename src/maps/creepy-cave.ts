@@ -43,6 +43,14 @@ export const creepyCave: MapConfig = {
     'Calls a friend — another tiny enemy appears next turn',
     'Just stares at you — nothing happens, but it is weird',
   ],
+  events: [
+    'A face on the wall whispers your name — keep going, nothing happens',
+    'All the eyes blink at once — you stop, lose your next move',
+    'A face sneezes — wet, loud, harmless',
+    'The walls hum a sad song — you take a wound from sheer dread',
+    'A tooth-shaped rock falls from the ceiling — GM moves any one enemy one square',
+    'One of the faces grins at you — heal one life, you needed that',
+  ],
   ending:
     'You stumble out the bottom crack. The last face you pass winks at you. Outside, someone has left a slightly squashed cupcake on a rock. It has your name on it. Probably.',
 };

@@ -14,11 +14,12 @@ Always create new maps as a module in `src/maps/` and register them in `src/maps
 
 - A4 landscape, printed.
 - 10×10 grid. Entrance on row 0, exit on row 9. Always a clear path between.
-- Obstacles printed on the map. Before play, the kid puts a toy/mini on every obstacle tile — those are the encounters.
-- Kid rolls a d6 to move, up to that many squares **or stops at the next obstacle**.
+- Obstacles printed on the map. Before play, the kid puts a toy/mini on every obstacle tile — those are the encounters. **Obstacle tiles are not enterable**; the kid fights from an adjacent square.
+- Kid rolls a d6 to move, up to that many squares **or stops on a square adjacent to an obstacle's mini** (= encounter).
 - On a fight: kid rolls **Combat d6**, adult rolls **Enemy d6**, both effects apply.
 - Combat slot 4 = "cast a spell" → roll **Spells d6**.
 - Combat slot 6 = kill, ends the fight.
+- **Events d6**: adult rolls this **every turn**, fight or no fight. Ambient map happenings — drips, rumbles, falling rocks, whispers. The dungeon is always doing something.
 - Life: 3 boxes. Wound results tick a box. Three wounds = out.
 - Win: reach EX. Adult reads the **ending**.
 
@@ -93,6 +94,7 @@ export const slug: MapConfig = {
   spells: ['1', '2', '3', '4', '5', '6'],
   combat: ['1', '2', '3', '4', '5', '6'],
   enemy:  ['1', '2', '3', '4', '5', '6'],
+  events: ['1', '2', '3', '4', '5', '6'],
   ending: '...',
 };
 ```
@@ -134,6 +136,17 @@ Six things that happen when the kid attacks. **Slot 4 must be "Cast a spell — 
 
 Six things the enemy does. Skew silly (poos pants, calls mum, bonks ceiling). At least one slot must wound the kid. At least one must be "mortally wounded" or equivalent so the adult can end a fight cleanly. At least one should be a non-event so not every round is dramatic.
 
+### events (d6)
+
+Six ambient things the dungeon does. The adult rolls this **every turn**, whether or not the kid is fighting — the dungeon is alive. Themed to the map: rumbles in a cave, slamming doors in a corridor, whispering faces in a creepy cave. Mix of:
+
+- Pure flavour (a drip, a distant noise, a whisper) — no mechanical effect.
+- Small consequences (lose your next move, GM nudges an enemy one square).
+- One wound slot — the dungeon itself can hurt the kid.
+- One heal/good slot — sometimes the dungeon is kind.
+
+Keep each entry to a single short line. The adult reads them aloud every turn, so brevity matters.
+
 ### ending
 
 One or two sentences. Read aloud when the kid reaches EX. No treasure economy — survival is the reward. Flavour rewards only: damp socks, slightly squashed cupcake, biscuit-smelling shoes. Tone: kind, a little absurd.
@@ -155,6 +168,7 @@ One or two sentences. Read aloud when the kid reaches EX. No treasure economy �
 - [ ] `enemy` has at least one wound-the-kid slot
 - [ ] `enemy` has at least one clean kill-the-enemy slot ("mortally wounded" or similar)
 - [ ] `enemy` has at least one non-event slot
+- [ ] `events` has at least one wound slot, one heal/good slot, and one pure-flavour slot
 - [ ] `ending` is 1–2 sentences, kind, no treasure economy
 
 ## End-to-end verification

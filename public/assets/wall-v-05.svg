@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20mm" height="20mm" viewBox="0 0 20 20"><rect x="0" y="0" width="20" height="20" fill="white" stroke="#eee" stroke-width="0.1" /><polyline points="10,0 9.5,2.86 9.79,5.71 10.68,8.57 8.7,11.43 10.51,14.29 9.37,17.14 10,20" fill="none" stroke="black" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20mm" height="20mm" viewBox="0 0 20 20">
+  <rect x="0" y="0" width="20" height="20" fill="white" stroke="#eee" stroke-width="0.1" />
+  <polyline points="10,0 9.5,2.86 9.79,5.71 10.68,8.57 8.7,11.43 10.51,14.29 9.37,17.14 10,20" fill="none" stroke="black" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="5.9" y1="12.2" x2="6.9" y2="15.8" stroke="black" stroke-width="0.2" stroke-linecap="round" />
+  <polyline points="5.1,12.6 5.7,12.2 6.25,12.1 6.8,12.4" fill="none" stroke="black" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="5.7,14 6.3,13.6 6.9,13.5 7.5,13.8" fill="none" stroke="black" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="6.3,15.4 6.9,15 7.45,14.9 8,15.2" fill="none" stroke="black" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

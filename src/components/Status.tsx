@@ -4,9 +4,10 @@ type Props = {
   spells: D6;
   combat: D6;
   enemy: D6;
+  events: D6;
 };
 
-export function Status({ spells, combat, enemy }: Props) {
+export function Status({ spells, combat, enemy, events }: Props) {
   const table = (label: string, rows: D6) => (
     <div>
       <div style={{ marginBottom: '1.5mm' }}>{label}</div>
@@ -26,6 +27,7 @@ export function Status({ spells, combat, enemy }: Props) {
       {table('Spells (d6)', spells)}
       {table('Combat (d6)', combat)}
       {table('Enemy (d6)', enemy)}
+      {table('Events (d6)', events)}
     </div>
   );
 }

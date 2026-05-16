@@ -58,6 +58,7 @@ type MapConfig = {
   spells: [string, string, string, string, string, string];   // d6
   combat: [string, string, string, string, string, string];   // d6
   enemy:  [string, string, string, string, string, string];   // d6
+  events: [string, string, string, string, string, string];   // d6, GM rolls every turn
   ending: string;             // read aloud when kid reaches EX
 };
 ```

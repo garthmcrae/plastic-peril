@@ -21,6 +21,7 @@ export function Sheet({ config }: { config: MapConfig }) {
         spells={config.spells}
         combat={config.combat}
         enemy={config.enemy}
+        events={config.events}
         ending={config.ending}
       />
     </div>

@@ -11,6 +11,7 @@ export type MapConfig = {
   spells: D6;
   combat: D6;
   enemy: D6;
+  events: D6;
   ending: string;
 };
 

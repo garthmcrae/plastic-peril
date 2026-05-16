@@ -43,6 +43,14 @@ export const irregularCave: MapConfig = {
     'Yells for its mum — another tiny enemy appears next turn',
     'Shrugs it off and glares — nothing happens, roll again next turn',
   ],
+  events: [
+    'A wet drip in the dark — nothing else happens',
+    'Distant rumble — the cave groans, dust falls',
+    'A bat flaps past your face — flinch, lose your next move',
+    'Eerie humming starts up again, louder this time',
+    'A small rock pings off your head — take a wound',
+    'Boulder thuds in the next chamber — GM moves any one enemy one square',
+  ],
   ending:
     'You squeeze out the bottom hole into daylight. There is a single damp sock on the grass. It is yours now. You earned it.',
 };

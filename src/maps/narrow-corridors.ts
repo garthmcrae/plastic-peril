@@ -43,6 +43,14 @@ export const narrowCorridors: MapConfig = {
     'Calls down the corridor — another tiny enemy appears next turn',
     'Stares — silent, terrifying, nothing happens',
   ],
+  events: [
+    'Footsteps echo behind you — but no one is there',
+    'A door slams somewhere — every enemy on the map twitches',
+    'Cold draft — you shiver, lose your next move',
+    'A whisper repeats your last word — creepy but harmless',
+    'Loose brick falls from the ceiling — take a wound',
+    'A lantern flickers on ahead — heal one life',
+  ],
   ending:
     'You pop out the south-east opening into a wide quiet room. There is a pair of mismatched socks on a small stool. One smells of biscuit. Both are yours.',
 };
