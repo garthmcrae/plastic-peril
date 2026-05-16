@@ -1,22 +1,19 @@
-# Room-Template Approach
+# Map authoring
 
-10×10 tile grid.
-Entrance on row 0, exit on row 9.
-Movement: up, down, left, right.
-Obstacles block the path; placed on interior floor tiles only.
-`OL` fills out-of-bounds cells — obstacle placement needs no bounds check, just avoid non-floor cells.
+10×10 tile grid. Entrance on row 0, exit on row 9. Movement up/down/left/right.
 
-## Room template examples
+Obstacles are placed on interior floor tiles only. Each obstacle tile becomes an encounter at play time (the kid places a toy on it before play). `OL` fills out-of-bounds cells — obstacle placement needs no bounds check, just avoid non-floor cells.
 
-Character → asset mapping:
+## Character → asset mapping
+
 - `NW NE SW SE` → `corner-{nw|ne|sw|se}-##.svg`
 - `--` → `wall-h-##.svg`
 - `||` → `wall-v-##.svg`
 - `**` → `obstacle-##.svg` (10 variants)
-- `  ` → `floor.svg` or exit gap
+- `  ` → `floor.svg`
 - `EN` → `entrance.svg`
 - `EX` → `exit.svg`
-- `OL` → off limits use `floor.svg`
+- `OL` → off limits, rendered as `floor.svg`
 
 ## Steps to generate a map
 
@@ -38,16 +35,36 @@ Build the playable floor first, then derive the walls from that shape.
    - `--` for horizontal wall runs
    - `||` for vertical wall runs
 8. Check that wall pieces form continuous outlines. Loose corners, isolated wall cells, and broken wall runs should be fixed before adding obstacles.
-9. Add obstacles last by changing selected interior floor cells to `**`.
+9. Add obstacles last by changing selected interior floor cells to `**`. Aim for 5–10 obstacles per map — every one is a fight at play time.
 10. Check that obstacles do not block the required path from `EN` to `EX`.
 11. Final validation:
-   - exactly 10 rows
-   - exactly 10 two-character cells per row
-   - `EN` is on row 0
-   - `EX` is on row 9
-   - every token is valid
-   - obstacles are placed only on interior floor cells
-   - walls are continuous, with intentional openings only at entrance and exit
+    - exactly 10 rows
+    - exactly 10 two-character cells per row
+    - `EN` is on row 0
+    - `EX` is on row 9
+    - every token is valid
+    - obstacles are placed only on interior floor cells
+    - walls are continuous, with intentional openings only at entrance and exit
+
+## Per-map content
+
+Each map exports a `MapConfig` (see `src/maps/index.ts`):
+
+```ts
+type MapConfig = {
+  title: string;
+  map: string;                // the 10x10 grid above
+  narrative: string;          // setup paragraph + inline GM prompts tied to dice
+  spells: [string, string, string, string, string, string];   // d6
+  combat: [string, string, string, string, string, string];   // d6
+  enemy:  [string, string, string, string, string, string];   // d6
+  ending: string;             // read aloud when kid reaches EX
+};
+```
+
+Authoring rules for the four content fields live in `AGENTS.md`.
+
+## Examples
 
 ```irregular-cave
 OLOLNW--------EN--NE
@@ -76,7 +93,7 @@ OLSW--EX--SEOLOLOLOL
 ```
 
 ```narrow-corridors
-NW--EN------------NE
+NWEN--------------NE
 ||              **||
 SW------------NE  ||
 NW------------SE  ||
@@ -85,5 +102,5 @@ NW------------SE  ||
 ||  SW------------NE
 ||    **        **||
 ||**              ||
-SW------------EX--SE
+SW--------------EXSE
 ```

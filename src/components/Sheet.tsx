@@ -15,7 +15,14 @@ export function Sheet({ config }: { config: MapConfig }) {
       }}
     >
       <Map map={config.map} title={config.title} />
-      <Sidebar title={config.title} narrative={config.narrative} />
+      <Sidebar
+        title={config.title}
+        narrative={config.narrative}
+        spells={config.spells}
+        combat={config.combat}
+        enemy={config.enemy}
+        ending={config.ending}
+      />
     </div>
   );
 }

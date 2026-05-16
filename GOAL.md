@@ -1,27 +1,29 @@
-# Game 
+# Goal
 
-## Context
+A printable dungeon sheet for a kid + adult to play in ten minutes at the kitchen table.
 
-I heard theres some asteroid game back in the day calculation to generate an ireggular shape for an asteroid, math craft SVG for dungeon tiles call these obsticle function to create Obsticle svg.
+## The format
 
-Rogue like tile system
+- A4 landscape sheet, printed at home.
+- Left side: a 10×10 dungeon map (vector style, like the original Asteroids — thin black strokes, jagged shapes).
+- Right side: story, life boxes, three d6 tables (Spells, Combat, Enemy), and an ending.
 
-A4 paper 210 294, we want tile area minus margin square area 210 - 30 (15 15 margin) 180 tile square 9 x 20 something like that.
+## How it plays
 
-Craft a "map" in this grid. Maps should have an entrance and exit tile — enter at the top, exit at the bottom. Ensure a path exists: entrance at some x on row 1, exit at some x on row 9. Place walls and obstacles but guarantee a path — if row 1 has x blocked columns then row 2 must leave enough open to keep a route through.
+- **Entrance** on row 0, **exit** on row 9. A clear path always exists between them.
+- **Obstacles** are printed on the map. Before play the kid picks toys/miniatures and places one on every obstacle tile — those toys are the enemies, set by the kid.
+- **Movement**: kid rolls a d6 and moves up to that many squares **or stops at an encounter** (any obstacle tile with a mini on it).
+- **Combat**: both sides roll a d6 each turn.
+  - Kid rolls the map's **Combat d6**. One slot is "cast a spell" — when it lands there, roll the map's **Spells d6**.
+  - Adult rolls the map's **Enemy d6** in the same turn. Both effects happen.
+  - The fight ends the moment the kid lands a kill result on the Combat d6.
+- **Life**: three boxes. Tick one each time the kid takes a wound. Three wounds = the kid is out.
+- **Win**: reach the exit alive. Adult reads the **ending** out loud (socks, cake, slightly-squashed cupcake — flavour only, no treasure economy).
 
-## First action tiles
+## Tone
 
-Initially imagine you are restricted like the mad lads that wrote asteroids running on math and vectors alone, just a stroke to tell a story.
+Rules bend. The adult is the game master and is allowed — encouraged — to skew rolls toward fun. The tables skew silly: enemies poo their pants, trip over their own feet, get called away by their mums. Real wounds happen but the table laughs more than it groans.
 
-Back to this I heard theres some asteroid game back in the day calculation to generate an ireggular shape for an asteroid, math craft SVG for dungeon tiles call these obsticle function to create Obsticle svg. DO this for 20x20 obsticle.
+## Authoring
 
-Horizontal wall is a jaggy line always going from y 10 to y 10 so they can sync up as they tile.
-
-Verticle wall is a jaggy line always going from x 10 to x 10 so they can sync up as they tile.
-
-Corners, given the other shit make the corners, I'm sure you can fill in the blanks jaggy there are 4.
-
-/assets all the tiles for me to review.
-
-/example label and tile rendered just HTML each indivually and then another static map with them positioned in place 10x10
+All map and content authoring rules live in `AGENTS.md`.
