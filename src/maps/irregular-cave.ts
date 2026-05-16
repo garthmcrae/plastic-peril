@@ -14,34 +14,31 @@ export const irregularCave: MapConfig = {
     'SWNE      NWSEOLOLOL',
     'OLSWEX----SEOLOLOLOL',
   ].join('\n'),
-  narrative:
-    "You crawl in through the top-right gap. The cave smells of old bat. Something in the dark is humming a song it does not know all the words to.\n\n" +
-    "[On Spell 3 (Stinkbreath) the cave gets very quiet and the next enemy skips its roll.]\n" +
-    "[On Enemy 5 the rocks shift — move one obstacle one square in any direction.]\n" +
-    "[If they reach the SW exit with at least one life, read the ending out loud.]",
+  introduction:
+    "You crawl in through the top-right gap. The cave smells of old bat. Something in the dark is humming a song it does not know all the words to.",
   spells: [
-    'Pebble Punch — chuck a rock, enemy rolls again at -1 in your head',
+    'Pebble Punch — chuck a rock, enemy ducks and joins you as a companion',
     'Glowworm — light up one room, GM names what is in it',
     'Stinkbreath — next enemy is too grossed out to attack',
-    'Bat Friend — a bat fights for you on the next combat roll',
+    'Bat Friend — a bat dive-bombs the enemy, it faints and is removed',
     'Rock Slip — slide one extra square in any direction',
     'Cave Burp — everyone laughs, fight pauses, you heal one life',
   ],
   combat: [
-    'You swing and miss — bonk a stalactite instead',
-    'You trip on your own boot, land on the enemy (counts as a wound)',
-    'Solid whack — enemy takes a wound',
-    'Cast a spell — roll the Spells d6',
+    'You swing and miss — bonk a stalactite instead — fight pauses one turn',
+    'You trip on your own boot, land on the enemy (you take a wound)',
+    'Solid whack — enemy is stunned, joins you as a companion',
+    'You offer it your snack — enemy is charmed, joins you as a companion',
     'Pocket sand! Enemy is blinded for their next roll',
-    'Critical hit — enemy is done, move on',
+    'Critical hit — enemy puffs into smoke, remove the mini',
   ],
   enemy: [
     'Poos pants — falls over backwards, no attack this turn',
     'Wild swing — you take a wound',
-    'Mortally wounded — flop, gurgle, gone',
-    'Trips and rolls into the next room — GM moves the mini',
-    'Yells for its mum — another tiny enemy appears next turn',
-    'Shrugs it off and glares — nothing happens, roll again next turn',
+    'Glares so hard you forget your next move — lose your next move',
+    'Stomps in place — no effect, but loud',
+    'Yells for its mum — another tiny enemy appears next turn on the entrance tile',
+    'Shrugs it off — nothing happens, roll again next turn',
   ],
   events: [
     'A wet drip in the dark — nothing else happens',
@@ -51,6 +48,6 @@ export const irregularCave: MapConfig = {
     'A small rock pings off your head — take a wound',
     'Boulder thuds in the next chamber — GM moves any one enemy one square',
   ],
-  ending:
+  conclusion:
     'You squeeze out the bottom hole into daylight. There is a single damp sock on the grass. It is yours now. You earned it.',
 };

@@ -16,12 +16,15 @@ Always create new maps as a module in `src/maps/` and register them in `src/maps
 - 10×10 grid. Entrance on row 0, exit on row 9. Always a clear path between.
 - Obstacles printed on the map. Before play, the kid puts a toy/mini on every obstacle tile — those are the encounters. **Obstacle tiles are not enterable**; the kid fights from an adjacent square.
 - Kid rolls a d6 to move, up to that many squares **or stops on a square adjacent to an obstacle's mini** (= encounter).
-- On a fight: kid rolls **Combat d6**, adult rolls **Enemy d6**, both effects apply.
-- Combat slot 4 = "cast a spell" → roll **Spells d6**.
-- Combat slot 6 = kill, ends the fight.
+- On a fight: **sequential rolls**. Kid rolls **Combat d6** first, adult narrates the result, then adult rolls **Enemy d6** as the enemy's reaction. The Enemy roll is skipped if Combat already resolved the fight.
+- Combat slot 6 = kill. Enemy puffs into smoke, mini removed, fight ends.
+- Other Combat slots can also end the fight by **pacifying** or **befriending** the enemy (companion). Or they don't resolve it — miss, stun, fight pauses.
+- **Spells d6** is a GM toolbox, not a fixed slot. Pull from it when the fiction calls for magic.
+- **Companions**: pacified/befriended enemies join the kid, move with their mini, are not obstacles, do not take wounds, do not die. **Kid rolls Combat once per companion in a fight** (1 companion = 2 rolls, 2 = 3 rolls). Each roll resolves independently. Adult still rolls Enemy d6 once in response.
+- Enemies never flee. They die (Combat 6), become companions, or stay put.
 - **Events d6**: adult rolls this **every turn**, fight or no fight. Ambient map happenings — drips, rumbles, falling rocks, whispers. The dungeon is always doing something.
-- Life: 3 boxes. Wound results tick a box. Three wounds = out.
-- Win: reach EX. Adult reads the **ending**.
+- Life: 3 boxes. Wound results tick a box. Three wounds = out. (Only the kid has life; enemies do not.)
+- Win: reach EX. Adult reads the **conclusion**.
 
 Tone: silly with real teeth. Pants get pooed. Bones get clean kills. The adult is allowed to fudge rolls. Kids should laugh more than they cry.
 
@@ -90,12 +93,12 @@ export const slug: MapConfig = {
   map: [
     /* 10 rows of 10 two-char cells */
   ].join('\n'),
-  narrative: '...',
+  introduction: '...',
   spells: ['1', '2', '3', '4', '5', '6'],
   combat: ['1', '2', '3', '4', '5', '6'],
   enemy:  ['1', '2', '3', '4', '5', '6'],
   events: ['1', '2', '3', '4', '5', '6'],
-  ending: '...',
+  conclusion: '...',
 };
 ```
 
@@ -110,31 +113,33 @@ export const maps: Record<string, MapConfig> = {
 };
 ```
 
-### narrative
+### introduction
 
-A short opening paragraph (2–4 sentences) that sets the scene, then 2–4 bracketed GM prompts tied to specific dice outcomes. Format:
-
-```
-[Opening paragraph in plain prose.]
-
-[On Spell N (Name) ...what happens...]
-[On Enemy N ...what happens...]
-[If they make it to the exit, read the ending.]
-```
-
-Prompts should reference the map's actual Spell or Enemy slots by index and name. Keep prompts short — the adult is reading mid-game.
+A short opening paragraph (2–4 sentences) that sets the scene. Plain prose. Read aloud at the start. No bracketed GM prompts — the d6 tables carry every per-turn outcome on their own.
 
 ### spells (d6)
 
-Six themed spells the kid can cast when their Combat d6 lands on slot 4. Format each entry as `Name — effect`. Effects should be small, narrate-able, and skew silly. At least one should heal or skip a fight; at least one should hurt the enemy.
+Six themed spells. The Spells d6 is a GM toolbox — the adult pulls from it when the fiction calls for magic (a Combat or Enemy result that mentions a spell, an Events roll that sparks one, the kid saying "I cast a spell"). Format each entry as `Name — effect`. Effects should be small, narrate-able, and skew silly. At least one should heal, skip a fight, or befriend an enemy; at least one should remove an enemy outright.
 
 ### combat (d6)
 
-Six things that happen when the kid attacks. **Slot 4 must be "Cast a spell — roll the Spells d6"**. **Slot 6 must be a kill that ends the fight.** The other four slots are free; mix slapstick (miss, trip, headbutt) with the occasional self-inflicted wound or solid hit. At least one of the remaining slots should wound the enemy without killing it (creates multi-turn fights).
+Six reactions to the kid's attack — narrated in sequence with the Enemy d6 response. Rules:
+
+- **Slot 6 must be a kill.** Enemy puffs into smoke, mini removed, fight ends.
+- Other slots are reaction outcomes — miss, stun, fight pauses, **pacify/befriend (enemy becomes a companion)**, or a self-inflicted wound on the kid.
+- Include at least one **companion** outcome (enemy joins the kid). Two is fine and keeps the companion mechanic appearing in play.
+- Do not chip away at enemy "wounds" — enemies have no HP. They die, become companions, or stay put.
+- No "Cast a spell" slot. Spells are GM-discretion (see `spells` above).
 
 ### enemy (d6)
 
-Six things the enemy does. Skew silly (poos pants, calls mum, bonks ceiling). At least one slot must wound the kid. At least one must be "mortally wounded" or equivalent so the adult can end a fight cleanly. At least one should be a non-event so not every round is dramatic.
+Six reactions the enemy has to the kid's just-narrated Combat roll. Skew silly (poos pants, calls mum, bonks ceiling, stares). Rules:
+
+- At least one slot must **wound the kid** (life box gets ticked).
+- At least one slot must be **"calls a friend"** / summons help — describe a new mini appearing next turn on the entrance tile.
+- At least one slot is a non-event so not every round is dramatic.
+- **No fleeing, no retreats, no "runs into the next room".** Enemies do not run away.
+- **No "mortally wounded" / "takes a wound" entries.** Death only happens via Combat slot 6.
 
 ### events (d6)
 
@@ -147,7 +152,7 @@ Six ambient things the dungeon does. The adult rolls this **every turn**, whethe
 
 Keep each entry to a single short line. The adult reads them aloud every turn, so brevity matters.
 
-### ending
+### conclusion
 
 One or two sentences. Read aloud when the kid reaches EX. No treasure economy — survival is the reward. Flavour rewards only: damp socks, slightly squashed cupcake, biscuit-smelling shoes. Tone: kind, a little absurd.
 
@@ -160,16 +165,19 @@ One or two sentences. Read aloud when the kid reaches EX. No treasure economy �
 
 ### Content validation checklist
 
-- [ ] `narrative` opens with prose, then bracketed GM prompts that reference real Spell/Enemy slots
+- [ ] `introduction` is plain prose (no brackets, no GM prompts)
 - [ ] `spells` has 6 entries in `Name — effect` form
-- [ ] `combat[3]` (slot 4) is the cast-a-spell slot
-- [ ] `combat[5]` (slot 6) is a kill that ends the fight
-- [ ] `combat` has at least one wound-the-enemy slot that does not kill
+- [ ] `combat[5]` (slot 6) is a kill (puffs into smoke, mini removed)
+- [ ] `combat` has at least one companion outcome (enemy joins the kid)
+- [ ] `combat` has no "cast a spell" slot
+- [ ] `combat` has no "enemy takes a wound" entries
 - [ ] `enemy` has at least one wound-the-kid slot
-- [ ] `enemy` has at least one clean kill-the-enemy slot ("mortally wounded" or similar)
+- [ ] `enemy[4]` (slot 5) is a "calls a friend / summons help" slot
 - [ ] `enemy` has at least one non-event slot
+- [ ] `enemy` has no fleeing / retreating / "runs into the next room" entries
+- [ ] `enemy` has no "mortally wounded" / "takes a wound" entries
 - [ ] `events` has at least one wound slot, one heal/good slot, and one pure-flavour slot
-- [ ] `ending` is 1–2 sentences, kind, no treasure economy
+- [ ] `conclusion` is 1–2 sentences, kind, no treasure economy
 
 ## End-to-end verification
 
@@ -180,7 +188,7 @@ bun run dev
 # open http://localhost:5173/?map=<your-slug>
 ```
 
-Confirm: map renders with the right shape, sidebar shows Life + Spells/Combat/Enemy d6 tables + narrative + ending, layout fits a single A4 landscape page (Cmd+P preview).
+Confirm: map renders with the right shape, sidebar shows Life + Spells/Combat/Enemy/Events d6 tables + introduction + conclusion, layout fits a single A4 landscape page (Cmd+P preview).
 
 ```sh
 bun run build

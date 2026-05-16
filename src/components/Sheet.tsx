@@ -17,12 +17,12 @@ export function Sheet({ config }: { config: MapConfig }) {
       <Map map={config.map} title={config.title} />
       <Sidebar
         title={config.title}
-        narrative={config.narrative}
+        introduction={config.introduction}
         spells={config.spells}
         combat={config.combat}
         enemy={config.enemy}
         events={config.events}
-        ending={config.ending}
+        conclusion={config.conclusion}
       />
     </div>
   );

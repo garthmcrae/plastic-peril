@@ -7,12 +7,12 @@ export type D6 = [string, string, string, string, string, string];
 export type MapConfig = {
   title: string;
   map: string;
-  narrative: string;
+  introduction: string;
   spells: D6;
   combat: D6;
   enemy: D6;
   events: D6;
-  ending: string;
+  conclusion: string;
 };
 
 export const maps: Record<string, MapConfig> = {

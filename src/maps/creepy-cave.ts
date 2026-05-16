@@ -14,34 +14,31 @@ export const creepyCave: MapConfig = {
     "SWNE    **NWSEOLOLOL",
     "OLSW--EX--SEOLOLOLOL",
   ].join("\n"),
-  narrative:
-    "You step through the top arch. The walls have faces. The faces have opinions. None of them are good.\n\n" +
-    "[On Spell 2 (Eye Closer) every face in the cave shuts up — skip the next Enemy roll.]\n" +
-    "[On Enemy 1 the face nearest the kid sneezes. Loudly. Move it to the floor and laugh.]\n" +
-    "[If they make the SW exit with at least one life, read the ending.]",
+  introduction:
+    "You step through the top arch. The walls have faces. The faces have opinions. None of them are good.",
   spells: [
     'Boop — flick the nearest face on the nose, it shuts up',
     'Eye Closer — every face in the cave closes its eyes for one turn',
-    'Pocket Mirror — the enemy sees itself, rolls its d6 at -1 in your head',
+    'Pocket Mirror — the enemy sees itself and joins you as a companion',
     'Soft Whisper — turn a face into a friend for one fight',
-    'Spider Friend — a spider scuttles in and bites the enemy (wound)',
+    'Spider Friend — a spider scuttles in, the enemy faints and is removed',
     'Cave Yawn — the whole cave yawns, you heal one life',
   ],
   combat: [
-    'You swing wide — clip a face on the wall, it goes "OW!"',
-    'You slip on something wet — fall into the enemy (wound)',
-    'Clean smack — enemy takes a wound',
-    'Cast a spell — roll the Spells d6',
+    'You swing wide — clip a face on the wall, it goes "OW!" — fight pauses one turn',
+    'You slip on something wet — fall into the enemy (you take a wound)',
+    'Clean smack — enemy is dazed, joins you as a companion',
+    'You sing a daft song — enemy is charmed, joins you as a companion',
     'You headbutt — both stunned, fight pauses one turn',
-    'Critical thunk — enemy is over, move on',
+    'Critical thunk — enemy goes up in a puff of smoke, remove the mini',
   ],
   enemy: [
     'Poos pants — sits down to think about it, no attack',
     'Wild claw — you take a wound',
-    'Mortally wounded — slides slowly down the wall',
-    'Runs into a face — face screams, both confused',
-    'Calls a friend — another tiny enemy appears next turn',
-    'Just stares at you — nothing happens, but it is weird',
+    'Looks at you funny — nothing happens, but it is weird',
+    'Stares so hard you forget your next move — lose your next move',
+    'Calls a friend — another tiny enemy appears next turn on the entrance tile',
+    'Snickers — no effect, but you feel judged',
   ],
   events: [
     'A face on the wall whispers your name — keep going, nothing happens',
@@ -51,6 +48,6 @@ export const creepyCave: MapConfig = {
     'A tooth-shaped rock falls from the ceiling — GM moves any one enemy one square',
     'One of the faces grins at you — heal one life, you needed that',
   ],
-  ending:
+  conclusion:
     'You stumble out the bottom crack. The last face you pass winks at you. Outside, someone has left a slightly squashed cupcake on a rock. It has your name on it. Probably.',
 };
