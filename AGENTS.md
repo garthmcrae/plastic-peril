@@ -16,12 +16,12 @@ Always create new maps as a module in `src/maps/` and register them in `src/maps
 - 10×10 grid. Entrance on row 0, exit on row 9. Always a clear path between.
 - Obstacles printed on the map. Before play, the kid puts a toy/mini on every obstacle tile — those are the encounters. **Obstacle tiles are not enterable**; the kid fights from an adjacent square.
 - Kid rolls a d6 to move, up to that many squares **or stops on a square adjacent to an obstacle's mini** (= encounter).
-- On a fight: **sequential rolls**. Kid rolls **Combat d6** first, adult narrates the result, then adult rolls **Enemy d6** as the enemy's reaction. The Enemy roll is skipped if Combat already resolved the fight.
-- Combat slot 6 = kill. Enemy puffs into smoke, mini removed, fight ends.
-- Other Combat slots can also end the fight by **pacifying** or **befriending** the enemy (companion). Or they don't resolve it — miss, stun, fight pauses.
+- On a fight: **sequential rolls**. Kid rolls **Combat d6** first, adult narrates the result, then adult rolls **Enemy d6** as the enemy's reaction. **Every Combat roll ends the fight** — the enemy mini always comes off the board.
+- **Every Combat slot resolves the fight.** The mini is removed — either dead, or as a companion who walks with the kid. No "miss", no "stun", no "fight pauses". Slot 6 is the canonical puff-of-smoke kill.
+- A Combat slot may wound the kid as a side effect of the kill (clumsy attack), but the enemy still goes.
 - **Spells d6** is a GM toolbox, not a fixed slot. Pull from it when the fiction calls for magic.
-- **Companions**: pacified/befriended enemies join the kid, move with their mini, are not obstacles, do not take wounds, do not die. **Kid rolls Combat once per companion in a fight** (1 companion = 2 rolls, 2 = 3 rolls). Each roll resolves independently. Adult still rolls Enemy d6 once in response.
-- Enemies never flee. They die (Combat 6), become companions, or stay put.
+- **Companions**: befriended enemies join the kid, move with their mini, are not obstacles, do not take wounds, do not die. Because every fight resolves in one Combat roll, companions don't roll extra dice — they're just along for the ride.
+- Enemies never flee. Every fight ends in one Combat roll: they die or become companions.
 - **Events d6**: adult rolls this **every turn**, fight or no fight. Ambient map happenings — drips, rumbles, falling rocks, whispers. The dungeon is always doing something.
 - Life: 3 boxes. Wound results tick a box. Three wounds = out. (Only the kid has life; enemies do not.)
 - Win: reach EX. Adult reads the **conclusion**.
@@ -123,30 +123,32 @@ Six themed spells. The Spells d6 is a GM toolbox — the adult pulls from it whe
 
 ### combat (d6)
 
-Six reactions to the kid's attack — narrated in sequence with the Enemy d6 response. Rules:
+Six reactions to the kid's attack. **Every slot ends the fight — the mini comes off the board.** Rules:
 
-- **Slot 6 must be a kill.** Enemy puffs into smoke, mini removed, fight ends.
-- Other slots are reaction outcomes — miss, stun, fight pauses, **pacify/befriend (enemy becomes a companion)**, or a self-inflicted wound on the kid.
-- Include at least one **companion** outcome (enemy joins the kid). Two is fine and keeps the companion mechanic appearing in play.
-- Do not chip away at enemy "wounds" — enemies have no HP. They die, become companions, or stay put.
+- **Every slot removes the mini.** No "miss", no "stun", no "fight pauses", no "next turn". The enemy is either dead or a companion by the end of the kid's roll.
+- Aim for **roughly 4 dead slots and 2 companion slots** per map. Slot 6 is the canonical puff-of-smoke kill.
+- At most one slot may wound the kid as a side effect of the kill (clumsy attack). The enemy still goes.
+- Do not chip away at enemy "wounds" — enemies have no HP. They die or become companions.
 - No "Cast a spell" slot. Spells are GM-discretion (see `spells` above).
+- No turn-tracking language anywhere ("this turn", "next turn", "lose your next move", "pauses one turn", "roll again next turn"). Outcomes are immediate.
 
 ### enemy (d6)
 
 Six reactions the enemy has to the kid's just-narrated Combat roll. Skew silly (poos pants, calls mum, bonks ceiling, stares). Rules:
 
 - At least one slot must **wound the kid** (life box gets ticked).
-- At least one slot must be **"calls a friend"** / summons help — describe a new mini appearing next turn on the entrance tile.
+- At least one slot must be **"calls a friend"** / summons help — describe a new mini appearing **now** on the entrance tile.
 - At least one slot is a non-event so not every round is dramatic.
 - **No fleeing, no retreats, no "runs into the next room".** Enemies do not run away.
-- **No "mortally wounded" / "takes a wound" entries.** Death only happens via Combat slot 6.
+- **No "mortally wounded" / "takes a wound" entries.** Death only happens via Combat.
+- **No turn-tracking language** — no "no attack this turn", "lose your next move", "roll again next turn". Pure flavour slots stay pure; mechanical slots resolve immediately.
 
 ### events (d6)
 
 Six ambient things the dungeon does. The adult rolls this **every turn**, whether or not the kid is fighting — the dungeon is alive. Themed to the map: rumbles in a cave, slamming doors in a corridor, whispering faces in a creepy cave. Mix of:
 
 - Pure flavour (a drip, a distant noise, a whisper) — no mechanical effect.
-- Small consequences (lose your next move, GM nudges an enemy one square).
+- Small consequences that resolve immediately (GM nudges an enemy one square, an obstacle shifts). **No "lose your next move" or other turn-tracking.**
 - One wound slot — the dungeon itself can hurt the kid.
 - One heal/good slot — sometimes the dungeon is kind.
 
@@ -168,15 +170,17 @@ One or two sentences. Read aloud when the kid reaches EX. No treasure economy �
 - [ ] `introduction` is plain prose (no brackets, no GM prompts)
 - [ ] `spells` has 6 entries in `Name — effect` form
 - [ ] `combat[5]` (slot 6) is a kill (puffs into smoke, mini removed)
-- [ ] `combat` has at least one companion outcome (enemy joins the kid)
+- [ ] **Every `combat` slot removes the mini (dead or companion)** — no "miss", "stun", "fight pauses"
+- [ ] `combat` has roughly 4 dead and 2 companion slots
 - [ ] `combat` has no "cast a spell" slot
 - [ ] `combat` has no "enemy takes a wound" entries
 - [ ] `enemy` has at least one wound-the-kid slot
-- [ ] `enemy[4]` (slot 5) is a "calls a friend / summons help" slot
+- [ ] `enemy[4]` (slot 5) is a "calls a friend / summons help" slot (mini appears **now** on entrance)
 - [ ] `enemy` has at least one non-event slot
 - [ ] `enemy` has no fleeing / retreating / "runs into the next room" entries
 - [ ] `enemy` has no "mortally wounded" / "takes a wound" entries
 - [ ] `events` has at least one wound slot, one heal/good slot, and one pure-flavour slot
+- [ ] **No "this turn / next turn / lose your next move / pauses / roll again" phrasing anywhere in `spells`, `combat`, `enemy`, or `events`**
 - [ ] `conclusion` is 1–2 sentences, kind, no treasure economy
 
 ## End-to-end verification
